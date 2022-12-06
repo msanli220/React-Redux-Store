@@ -1,15 +1,7 @@
-import DashboardNavigation from './page/GostergePaneli/navigation';
 
+import DashboardNavigation from './page/Dashboard/navigation';
 const navigation = [
     ...DashboardNavigation,
-    {
-        text: 'Tanımlamalar',
-        icon: 'far fa-sticky-note',
-        items: [
-            ...SinavlarNavigation,
-            
-        ]
-    }
 
 ];
 

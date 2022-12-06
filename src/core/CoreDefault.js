@@ -1,5 +1,3 @@
-import EndpointRoute from "./EndpointRoute";
-
 
 const CoreDefault = {
 

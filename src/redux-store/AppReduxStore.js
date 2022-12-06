@@ -1,5 +1,3 @@
-
-
 const initialState = { role: null };
 
 export default function (state = initialState, action) {

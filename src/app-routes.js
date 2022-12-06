@@ -3,14 +3,12 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import shortid from 'shortid';
 
 // page
-import DashboardRoutes from './page/GostergePaneli/routes'
-import KullaniciYonetimiRoutes from './page/HesapYonetimi/KullaniciYonetimi/routes'
+import DashboardRoutes from './page/Dashboard/routes'
+
 
 
 const routes = [
-    ...DashboardRoutes,
-    ...KullaniciYonetimiRoutes,
-    
+    ...DashboardRoutes,  
 ];
 
 const AppRoutes = () => (

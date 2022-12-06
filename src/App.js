@@ -1,13 +1,25 @@
-import './App.css';
+import {connect} from "react-redux";
+import Authentication from './page/Authentication';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
+
+function App( props ) {
+    console.log("App.rendered: ");
+
   
-      </header>
-    </div>
-  );
+    return <Authentication />;
 }
 
-export default App;
+const mapStateToProps = function(state, props) {
+    console.log("App.mapStateToProps", state.AuthPageStore);
+
+}
+
+const mapDispatchToProps = function (dispatch) {
+    console.log("App.mapDispatchToProps");
+  
+    return {
+       
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
