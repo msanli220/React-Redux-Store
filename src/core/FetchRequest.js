@@ -1,9 +1,7 @@
 import Axios        from 'axios';
 import CoreDefault  from "./CoreDefault";
 import Lodash from 'lodash';
-import AutomationTypeEnum from '../enum/AutomationTypeEnum';
 import EndpointRoute from './EndpointRoute';
-import DeviceTypeEnum from '../enum/DeviceTypeEnum';
 import OS from 'os';
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -25,8 +23,6 @@ let requestInit = (params) => {
             'Accept': 'application/json',
             'Content-Type': params.contentType || 'application/json',
             'Authorization': `Bearer ${localStorage.getItem("token")?localStorage.getItem("token"):params.token}`,
-            "meteksan-automation-type": AutomationTypeEnum.WORKSTATION,
-            "device-type": DeviceTypeEnum.WORKSTATION.Name,
             "hostname": OS.hostname()
         },
         responseType: 'json',

@@ -1,6 +1,6 @@
 import { DELETE, PATCH, POST, MANAGEMENT } from '../enum/RequestMethodEnum';
 import { CLEAN, FETCHING } from '../enum/ResponseStatusEnum';
-import ReadonlyActionBase from './ReadonlyActionBase';
+import ReadonlyActionBase from './ReadOnlyActionBase';
 
 
 export default class ActionBase extends ReadonlyActionBase {

@@ -1,4 +1,4 @@
-import AccountServiceAction from '../../Service/Account/AccountServiceAction';
+import AccountServiceAction from '../../Service/AuthService/AccountServiceAction';
 
 
 export default class AccountAction extends AccountServiceAction {

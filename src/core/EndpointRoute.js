@@ -1,7 +1,8 @@
-const AppSettings = require("../extensions/AppSettingsExtension");
+// const AppSettings = require("../extensions/AppSettingsExtension");
 
 const EndpointRoute = {
-    url: AppSettings.api,
+    // url: AppSettings.api,
+    url: "",
     version: "v1",
 
     // Account

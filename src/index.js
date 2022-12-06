@@ -11,6 +11,7 @@ import ReduxMiddleware from './app-redux';
 import ReduxStore from './redux-store';
 // navigation
 import { NavigationProvider } from "./app-navigationContext";
+import './extensions/AppSettingsExtension';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

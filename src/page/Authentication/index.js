@@ -3,6 +3,7 @@ import { Grid,Paper, Avatar, TextField, Button,Link } from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import {useState,useCallback} from 'react'
 import {connect} from "react-redux";
+import AccountAction from '../../action/Page/Auth/AccountAction';
 
 function Authentication ( props ) {
     console.log("Authentication.rendered", props);
@@ -52,20 +53,25 @@ function Authentication ( props ) {
 }
 const mapStateToProps = function ( state, props ) {
     console.log("SignIn.mapStateToProps: ", state.AuthPageStore );
- const accountAction = new AccountAction( dispatch );
-   
+  
+    const signInIsLoading = state.AuthPageStore.AccountServiceStore.signIn.isLoading;
+    const signInError = state.AuthPageStore.AccountServiceStore.signIn.error;
+    const token = localStorage.getItem("token") || state.AuthPageStore.AccountServiceStore.signIn.payload;
 
     return {
-      
+        signInIsLoading,
+        signInError,
+        token,
     }
 }
 
 const mapDispatchToProps = function ( dispatch ) {
     console.log("SignIn.mapDispatchToProps");
- 
+    const accountAction = new AccountAction( dispatch );
 
     return {
-
+        doSignIn: (params) => { accountAction.signIn(params); },
+        doClean: () => { accountAction.signInClean(); },
     }
 }
 
