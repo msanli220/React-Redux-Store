@@ -5,13 +5,14 @@ import Authentication from './page/Authentication';
 function App( props ) {
     console.log("App.rendered: ");
 
-  
     return <Authentication />;
 }
 
 const mapStateToProps = function(state, props) {
     console.log("App.mapStateToProps", state.AuthPageStore);
-
+    return {
+       
+    }
 }
 
 const mapDispatchToProps = function (dispatch) {

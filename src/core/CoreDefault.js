@@ -1,7 +1,7 @@
 
 const CoreDefault = {
 
-    websiteAddress: "https://dummyjson.com/data/",
+    websiteAddress: "https://dummyjson.com/",
 
     acceptableHttpStatus: [200, 201, 400, 401, 406, 500]
     

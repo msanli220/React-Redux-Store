@@ -2,7 +2,7 @@
 
 const EndpointRoute = {
     // url: AppSettings.api,
-    url: "http://dummyjson.com/data/",
+    url: "http://dummyjson.com/",
     version: "v1",
 
     // Account
@@ -10,7 +10,7 @@ const EndpointRoute = {
         prefix: "/account",
 
         signUp: "/sign-up",
-        signIn: "/sign-in",
+        signIn: "/auth/login",
         changePassword: "/changePassword"
     },
 }
