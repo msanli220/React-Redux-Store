@@ -1,6 +1,6 @@
 export const ApiProtocolEnum = {
-    GET: "get",
-    POST: "post",
-    PATCH: "patch",
-    DELETE: "delete"
+    GET: "GET",
+    POST: "POST",
+    PATCH: "PATCH",
+    DELETE: "DELETE"
 };

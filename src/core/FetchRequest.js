@@ -22,9 +22,10 @@ let requestInit = (params) => {
         headers: {
             'Accept': 'application/json',
             'Content-Type': params.contentType || 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem("token")?localStorage.getItem("token"):params.token}`,
-            "hostname": OS.hostname()
+            'Access-Control-Allow-Origin': '*',
+           
         },
+        withCredentials: false,
         responseType: 'json',
         responseEncoding: 'utf8',
         validateStatus: function (status) {

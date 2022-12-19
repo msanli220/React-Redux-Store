@@ -13,7 +13,7 @@ export default class ActionBase extends ReadonlyActionBase {
      */
     async management( params) {
         this.dispatch([ { type: `${this.pageName}${this.serviceName}${MANAGEMENT}${FETCHING}` } ]);
-        this._run( this.service.management.bind(this.service), Object.assign({}, params, {args:{ actionType: MANAGEMENT}}) );
+        this._run( this.service.management.bind(this.service), Object.assign({}, params, {args:{ method: MANAGEMENT}}) );
     }
 
     /**
@@ -32,7 +32,7 @@ export default class ActionBase extends ReadonlyActionBase {
     async post( params ) {
         console.log("params:", params);
         this.dispatch([ { type: `${this.pageName}${this.serviceName}${POST}${FETCHING}` } ]);
-        this._run( this.service.post.bind(this.service), Object.assign({}, params, {args:{ actionType: POST}}) );
+        this._run( this.service.post.bind(this.service), Object.assign({}, params, {args:{ method: POST}}) );
     }
 
     /**
@@ -50,7 +50,7 @@ export default class ActionBase extends ReadonlyActionBase {
      */
     async patch( params ) {
         this.dispatch([ { type: `${this.pageName}${this.serviceName}${PATCH}${FETCHING}` } ]);
-        this._run( this.service.patch.bind(this.service), Object.assign({}, params, {args:{...params.args, actionType: PATCH}}) );
+        this._run( this.service.patch.bind(this.service), Object.assign({}, params, {args:{...params.args, method: PATCH}}) );
     }
 
     /**
@@ -68,7 +68,7 @@ export default class ActionBase extends ReadonlyActionBase {
      */
     async delete( params) {
         this.dispatch([ { type: `${this.pageName}${this.serviceName}${DELETE}${FETCHING}` } ]);
-        this._run( this.service.delete.bind(this.service), Object.assign({}, params, {args:{...params.args, actionType: DELETE}}) );
+        this._run( this.service.delete.bind(this.service), Object.assign({}, params, {args:{...params.args, method: DELETE}}) );
     }
 
     /**

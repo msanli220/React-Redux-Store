@@ -12,7 +12,7 @@ export default class ReadonlyActionBase extends CoreActionBase{
      */
     async get( params) {
         this.dispatch([ { type: `${this.pageName}${this.serviceName}${GET}${FETCHING}` } ]);
-        this._run( this.service.get.bind(this.service), Object.assign({}, params, {args:{actionType: GET}}) );
+        this._run( this.service.get.bind(this.service), Object.assign({}, params, {args:{method: GET}}) );
     }
 
     /**
@@ -37,7 +37,7 @@ export default class ReadonlyActionBase extends CoreActionBase{
     async details( params) {
         console.log("params",params)
         this.dispatch([ { type: `${this.pageName}${this.serviceName}${DETAILS}${FETCHING}` } ]);
-        this._run( this.service.details.bind(this.service), Object.assign({}, params, {args:{actionType: DETAILS}}) );
+        this._run( this.service.details.bind(this.service), Object.assign({}, params, {args:{method: DETAILS}}) );
     }
 
 

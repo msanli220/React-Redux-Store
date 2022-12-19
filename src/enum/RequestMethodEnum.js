@@ -7,6 +7,6 @@ export const MANAGEMENT = "MA";
 
 // only account service
 
-export const SIGNIN = "SI";
-export const SIGNUP = "SU";
+export const SIGNIN = "POST";
+export const SIGNUP = "POST";
 export const CHANGE_PASSWORD = "CP";

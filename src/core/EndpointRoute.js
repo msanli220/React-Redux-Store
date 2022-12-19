@@ -2,7 +2,7 @@
 
 const EndpointRoute = {
     // url: AppSettings.api,
-    url: "http://dummyjson.com/",
+    url: "http://dummyjson.com",
     version: "v1",
 
     // Account

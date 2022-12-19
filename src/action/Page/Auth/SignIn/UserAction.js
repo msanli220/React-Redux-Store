@@ -63,7 +63,7 @@ export default class UserAction extends ActionBase {
                 type: SIGNIN_FETCHING
             }
         ]);
-        this._run( this.service.signIn.bind(this.service), Object.assign({}, params, {args:{...params.args, actionType:'signIn'}}) );
+        this._run( this.service.signIn.bind(this.service), Object.assign({}, params, {args:{...params.args, method:'POST'}}) );
     }
 
     /**
@@ -81,7 +81,7 @@ export default class UserAction extends ActionBase {
      * @param params.args.dispatchTypes.error { Number|null }
      */
     async signUp( params ) {
-        this._run( this.service.signUp.bind(this.service), Object.assign({}, params, {args:{...params.args, actionType:'signUp'}}) );
+        this._run( this.service.signUp.bind(this.service), Object.assign({}, params, {args:{...params.args, method:'POST'}}) );
     }
 
     /**
@@ -99,7 +99,7 @@ export default class UserAction extends ActionBase {
      * @param params.args.dispatchTypes.error { Number|null }
      */
     async getUsers( params ) {
-        this._run( this.service.getUsers.bind(this.service), Object.assign({}, params, {args:{...params.args, actionType:'getUsers'}}) );
+        this._run( this.service.getUsers.bind(this.service), Object.assign({}, params, {args:{...params.args, method:'getUsers'}}) );
     }
 
 
@@ -107,7 +107,7 @@ export default class UserAction extends ActionBase {
     callback200(response, args) {
         super.callback200(response, args);
 
-        if ( args.actionType === "signIn" ) {
+        if ( args.method === "POST" ) {
             this.dispatch([
                 {
                     type: SIGNIN_FETCH_SUCCESS,
@@ -120,7 +120,7 @@ export default class UserAction extends ActionBase {
     callback401(response, args) {
         super.callback401(response, args);
 
-        if ( args.actionType === "signIn" ) {
+        if ( args.method === "POST" ) {
             this.dispatch([
                 {
                     type: SIGNIN_FETCH_FAIL,

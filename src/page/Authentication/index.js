@@ -25,8 +25,9 @@ function Authentication ( props ) {
 
     const onSubmit = useCallback(
         (e) => {
-            e.preventDefault();
 
+            e.preventDefault();
+            console.log("formdata:",formData)
             props.doSignIn({ serviceData: { ...formData } });
 
         },

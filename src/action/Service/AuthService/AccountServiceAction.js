@@ -39,7 +39,7 @@ export default class AccountServiceAction extends ActionBase {
      */
     async signUp ( params ) {
         this.dispatch([{ type: `${this.pageName}${this.serviceName}${SIGNUP}${FETCHING}` }]);
-        this._run( this.service.signUp.bind(this.service), Object.assign({}, params, {args:{...params.args, actionType: SIGNUP}}) );
+        this._run( this.service.signUp.bind(this.service), Object.assign({}, params, {args:{...params.args, method: SIGNUP}}) );
     }
 
     /**
@@ -56,7 +56,7 @@ export default class AccountServiceAction extends ActionBase {
      */
     async signIn ( params ) {
         this.dispatch([ { type: `${this.pageName}${this.serviceName}${SIGNIN}${FETCHING}` } ]);
-        this._run( this.service.signIn.bind(this.service), Object.assign({}, params, {args:{...params.args, actionType: SIGNIN}}) );
+        this._run( this.service.signIn.bind(this.service), Object.assign({}, params, {args:{...params.args, method: SIGNIN}}) );
     }
 
     /**
@@ -73,7 +73,7 @@ export default class AccountServiceAction extends ActionBase {
      */
     async changePassword ( params ) {
         this.dispatch([{ type: `${this.pageName}${this.serviceName}${CHANGE_PASSWORD}${FETCHING}` }]);
-        this._run( this.service.changePassword.bind(this.service), Object.assign({}, params, {args:{...params.args, actionType: CHANGE_PASSWORD}}) );
+        this._run( this.service.changePassword.bind(this.service), Object.assign({}, params, {args:{...params.args, method: CHANGE_PASSWORD}}) );
     }
 
     /**
@@ -87,21 +87,21 @@ export default class AccountServiceAction extends ActionBase {
     callback200(response, args) {
         super.callback200(response, args);
 
-        if ( args.actionType === SIGNIN ) {
+        if ( args.method === SIGNIN ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${SIGNIN}${SUCCESS}`,
                     payload: response.value.token
                 }
             ]);
-        }  else if ( args.actionType === SIGNUP ) {
+        }  else if ( args.method === SIGNUP ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${SIGNUP}${SUCCESS}`,
                     payload: response.value.token
                 }
             ]);
-        } else if ( args.actionType === GET ) {
+        } else if ( args.method === GET ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${GET}${SUCCESS}`,
@@ -109,7 +109,7 @@ export default class AccountServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === POST ) {
+        else if ( args.method === POST ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${POST}${SUCCESS}`,
@@ -117,7 +117,7 @@ export default class AccountServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === PATCH ) {
+        else if ( args.method === PATCH ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${PATCH}${SUCCESS}`,
@@ -125,7 +125,7 @@ export default class AccountServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === DELETE ) {
+        else if ( args.method === DELETE ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${DELETE}${SUCCESS}`,
@@ -133,14 +133,14 @@ export default class AccountServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === MANAGEMENT ) {
+        else if ( args.method === MANAGEMENT ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${MANAGEMENT}${SUCCESS}`,
                     payload: response.value
                 }
             ]);
-        } else if ( args.actionType === CHANGE_PASSWORD ) {
+        } else if ( args.method === CHANGE_PASSWORD ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${CHANGE_PASSWORD}${SUCCESS}`,
@@ -153,14 +153,14 @@ export default class AccountServiceAction extends ActionBase {
     callback401(response, args) {
         super.callback401(response, args);
 
-        if ( args.actionType === SIGNIN ) {
+        if ( args.method === SIGNIN ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${SIGNIN}${FAIL}`,
                     payload: response
                 }
             ]);
-        } else if ( args.actionType === SIGNUP ) {
+        } else if ( args.method === SIGNUP ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${SIGNUP}${FAIL}`,
@@ -168,7 +168,7 @@ export default class AccountServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === DELETE ) {
+        else if ( args.method === DELETE ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${DELETE}${FAIL}`,
@@ -176,7 +176,7 @@ export default class AccountServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === POST ) {
+        else if ( args.method === POST ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${POST}${FAIL}`,
@@ -184,7 +184,7 @@ export default class AccountServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === PATCH ) {
+        else if ( args.method === PATCH ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${PATCH}${FAIL}`,
@@ -192,7 +192,7 @@ export default class AccountServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === GET ) {
+        else if ( args.method === GET ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${GET}${FAIL}`,
@@ -200,7 +200,7 @@ export default class AccountServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === DETAILS ) {
+        else if ( args.method === DETAILS ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${DETAILS}${FAIL}`,
@@ -208,14 +208,14 @@ export default class AccountServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === MANAGEMENT ) {
+        else if ( args.method === MANAGEMENT ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${MANAGEMENT}${FAIL}`,
                     payload: null
                 }
             ]);
-        } else if ( args.actionType === CHANGE_PASSWORD ) {
+        } else if ( args.method === CHANGE_PASSWORD ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${CHANGE_PASSWORD}${FAIL}`,
@@ -228,21 +228,21 @@ export default class AccountServiceAction extends ActionBase {
     callback400(response, args) {
         super.callback400(response, args);
 
-          if ( args.actionType === SIGNIN ) {
+          if ( args.method === SIGNIN ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${SIGNIN}${FAIL}`,
                     payload: response
                 }
             ]);
-        } else if ( args.actionType === SIGNUP ) {
+        } else if ( args.method === SIGNUP ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${SIGNUP}${FAIL}`,
                     payload: null
                 }
             ]);
-        } else if ( args.actionType === GET ) {
+        } else if ( args.method === GET ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${GET}${FAIL}`,
@@ -250,7 +250,7 @@ export default class AccountServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === DELETE ) {
+        else if ( args.method === DELETE ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${DELETE}${FAIL}`,
@@ -258,7 +258,7 @@ export default class AccountServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === PATCH ) {
+        else if ( args.method === PATCH ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${PATCH}${FAIL}`,
@@ -266,7 +266,7 @@ export default class AccountServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === POST ) {
+        else if ( args.method === POST ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${POST}${FAIL}`,
@@ -274,7 +274,7 @@ export default class AccountServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === DETAILS ) {
+        else if ( args.method === DETAILS ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${DETAILS}${FAIL}`,
@@ -282,14 +282,14 @@ export default class AccountServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === MANAGEMENT ) {
+        else if ( args.method === MANAGEMENT ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${MANAGEMENT}${FAIL}`,
                     payload: response.value
                 }
             ]);
-        } else if ( args.actionType === CHANGE_PASSWORD ) {
+        } else if ( args.method === CHANGE_PASSWORD ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${CHANGE_PASSWORD}${FAIL}`,
