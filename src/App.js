@@ -5,6 +5,7 @@ import Authentication from './page/Authentication';
 function App( props ) {
     console.log("App.rendered: ");
 
+
     return <Authentication />;
 }
 

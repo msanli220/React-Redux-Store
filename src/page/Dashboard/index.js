@@ -11,6 +11,7 @@ function Dashboard ( props ) {
     return (
       <div>
        <div>Dashboard</div>
+       <h1>This is Dashboard</h1>
       </div>
     );
 }

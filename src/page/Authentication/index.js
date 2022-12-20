@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Grid,Paper, Avatar, TextField, Button,Link } from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import {useState,useCallback} from 'react'
@@ -22,6 +22,11 @@ function Authentication ( props ) {
         setFormData(prevState => ({...prevState, password: e.target.value}));
     }
 
+
+    useEffect(()=>{
+        console.log("Props.token is:", props.token)
+        
+    },[props.token]);
 
     const onSubmit = useCallback(
         (e) => {
@@ -58,7 +63,7 @@ const mapStateToProps = function ( state, props ) {
     const signInIsLoading = state.AuthPageStore.AccountServiceStore.signIn.isLoading;
     const signInError = state.AuthPageStore.AccountServiceStore.signIn.error;
     const token = localStorage.getItem("token") || state.AuthPageStore.AccountServiceStore.signIn.payload;
-
+    const isLoading = signInIsLoading||token;
     return {
         signInIsLoading,
         signInError,

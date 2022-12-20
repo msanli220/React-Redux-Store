@@ -60,7 +60,7 @@ function BaseStore( pageName, serviceName, protocol ) {
 }
 
 function BaseStoreLogin( pageName, serviceName, protocol ) {
-
+    console.log("BaseStoreLogin:::",pageName,serviceName,protocol)
     return function reducer(state = initState, action) {
 
         console.log(`${pageName}-${serviceName}-${protocol}-${SUCCESS}`);

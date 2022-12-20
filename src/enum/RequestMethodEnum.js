@@ -1,12 +1,12 @@
-export const GET = "GE";
-export const POST = "PO";
-export const PATCH = "PA";
-export const DELETE = "DL";
-export const DETAILS = "DT";
-export const MANAGEMENT = "MA";
+export const GET = "GET";
+export const POST = "POST";
+export const PATCH = "PATCH";
+export const DELETE = "DELETE";
+export const DETAILS = "DETAILS";
+export const MANAGEMENT = "MANAGEMENT";
 
 // only account service
 
-export const SIGNIN = "POST";
-export const SIGNUP = "POST";
+export const SIGNIN = "SI";
+export const SIGNUP = "SU";
 export const CHANGE_PASSWORD = "CP";

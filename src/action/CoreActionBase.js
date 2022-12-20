@@ -86,7 +86,7 @@ export default class CoreActionBase {
                 const status = `h${response.status}`;
 
                 switch (status) {
-
+                   
                     // from data
                     case `d${ResultStatusEnum.Success}`:
                     case `h${ResultStatusEnum.Success}`:

@@ -23,9 +23,7 @@ let requestInit = (params) => {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
-            'Authorization': `Bearer ${localStorage.getItem("token")?localStorage.getItem("token"):params.token}`,
-          
-           
+       //     'Authorization': `Bearer ${localStorage.getItem("token")?localStorage.getItem("token"):params?.token}`,    
         },
         withCredentials: false,
         responseType: 'json',

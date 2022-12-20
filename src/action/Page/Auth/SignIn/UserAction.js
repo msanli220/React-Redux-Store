@@ -105,13 +105,14 @@ export default class UserAction extends ActionBase {
 
 
     callback200(response, args) {
+        console.log("response callback200:", response)
         super.callback200(response, args);
-
+        
         if ( args.method === "POST" ) {
             this.dispatch([
                 {
                     type: SIGNIN_FETCH_SUCCESS,
-                    payload: response.value.token
+                    payload: response.data?.token
                 }
             ]);
         } 

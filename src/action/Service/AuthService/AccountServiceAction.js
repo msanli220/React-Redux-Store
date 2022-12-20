@@ -85,35 +85,38 @@ export default class AccountServiceAction extends ActionBase {
 
 
     callback200(response, args) {
+        console.log("callback 200:", response,args)
         super.callback200(response, args);
 
         if ( args.method === SIGNIN ) {
+            console.log("it is signin!!!!")
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${SIGNIN}${SUCCESS}`,
-                    payload: response.value.token
+                    payload: response.token
                 }
             ]);
         }  else if ( args.method === SIGNUP ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${SIGNUP}${SUCCESS}`,
-                    payload: response.value.token
+                    payload: response.token
                 }
             ]);
         } else if ( args.method === GET ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${GET}${SUCCESS}`,
-                    payload: response.value
+                    payload: response
                 }
             ]);
         }
         else if ( args.method === POST ) {
+            console.log("it is POST !")
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${POST}${SUCCESS}`,
-                    payload: response.value
+                    payload: response
                 }
             ]);
         }
@@ -121,7 +124,7 @@ export default class AccountServiceAction extends ActionBase {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${PATCH}${SUCCESS}`,
-                    payload: response.value
+                    payload: response
                 }
             ]);
         }
@@ -129,7 +132,7 @@ export default class AccountServiceAction extends ActionBase {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${DELETE}${SUCCESS}`,
-                    payload: response.value
+                    payload: response
                 }
             ]);
         }
@@ -137,14 +140,14 @@ export default class AccountServiceAction extends ActionBase {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${MANAGEMENT}${SUCCESS}`,
-                    payload: response.value
+                    payload: response
                 }
             ]);
         } else if ( args.method === CHANGE_PASSWORD ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${CHANGE_PASSWORD}${SUCCESS}`,
-                    payload: response.value
+                    payload: response
                 }
             ]);
         }
