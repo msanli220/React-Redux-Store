@@ -21,7 +21,7 @@ let requestInit = (params) => {
         method: params.method,
         headers: {
             'Accept': 'application/json',
-            'Content-Type': params.contentType || 'application/json',
+            'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
            
         },
@@ -96,7 +96,7 @@ function QueryComposer( baseUrl, queryOptions ) {
 export async function ApiFetch ( params ) {
     console.log("ApiFetch.params.raw ", params);
 
-    const baseUrl = `${EndpointRoute.url}/api${params.sourcePath}`;
+    const baseUrl = `${EndpointRoute.url}${params.sourcePath}`;
     const url = QueryComposer(baseUrl, params.queryOptions);
 
     let _requestInit = requestInit( { ...params, url } );
