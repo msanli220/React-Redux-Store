@@ -2,7 +2,7 @@
 const Navigation = [
     {
         text: 'Anasayfa ',
-        path: "/dashboard",
+        path: "/",
     }
 ];
 

@@ -2,7 +2,7 @@ import Dashboard from './index';
 
 const Routes = [
     {
-        path: ["/", "/dashboard"],
+        path: "/",
         component: Dashboard
     }
 ];
