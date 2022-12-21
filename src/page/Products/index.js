@@ -4,20 +4,21 @@ import {connect} from "react-redux";
 
 
 
-function Dashboard ( props ) {
-    console.log("Dashboard.rendered");
+function Products ( props ) {
+    console.log("Products.rendered");
   
 
    
     return (
       <div>
-      <h1>DashBoard Page</h1>
+      <h1>Products Page</h1>
+    
       </div>
     );
 }
 
 const mapStateToProps = function ( state, props ) {
-    console.log("Dashboard.mapStateToProps",state);
+    console.log("Products.mapStateToProps",state);
   
    return {
        
@@ -26,18 +27,18 @@ const mapStateToProps = function ( state, props ) {
 }
 
 const mapDispatchToProps = function ( dispatch ) {
-    console.log("Dashboard.mapDispatchToProps");
+    console.log("Products.mapDispatchToProps");
    
     return {
        
     }
 }
 
-const Component = React.memo(Dashboard, (prevProps, nextProps) => {
-    console.log("---- Dashboard.React.memo ----\n", "PrevProps:", prevProps, "NextProps:", nextProps);
+const Component = React.memo(Products, (prevProps, nextProps) => {
+    console.log("---- Products.React.memo ----\n", "PrevProps:", prevProps, "NextProps:", nextProps);
    
 
-    console.log("Dashboard.doNotRender");
+    console.log("Products.doNotRender");
     return true;
 });
 

@@ -4,10 +4,14 @@ import {  Switch,Routes, Route,Redirect} from 'react-router-dom';
 import shortid from 'shortid';
 
 // page
-import DashboardRoutes from './page/Dashboard/routes'
+import DashboardRoutes from './page/Dashboard/routes';
+import ProductRoutes from './page/Products/routes';
+import UserRoutes from './page/Users/routes';
 
 const routes = [
-    ...DashboardRoutes,  
+    ...DashboardRoutes, 
+    ...ProductRoutes,
+    ...UserRoutes
 ];
 
 const AppRoutes = () => (

@@ -4,7 +4,7 @@ import React from 'react'
 import Lodash from 'lodash'
 import { ThemeProvider } from 'react-bootstrap';
 import { createTheme } from '@material-ui/core/styles';
-
+import AppBarMenu from './components/AppBarMenu.js'
 import AppRoutes from './app-routes';
 
 
@@ -53,6 +53,7 @@ function App( props ) {
         console.log("isLoginSuccess!!!")
         return (
             <ThemeProvider theme={theme}>
+             <AppBarMenu/>
             <AppRoutes />
             </ThemeProvider>
         );
