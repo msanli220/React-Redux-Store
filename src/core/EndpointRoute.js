@@ -8,11 +8,16 @@ const EndpointRoute = {
     // Account
     account: {
         prefix: "/auth",
-
         signUp: "/sign-up",
         signIn: "/login",
         changePassword: "/changePassword"
     },
+    product: {
+        prefix:"/products",
+    },
+    user:{
+        prefix:"/users"
+    }
 }
 
 export default EndpointRoute;
