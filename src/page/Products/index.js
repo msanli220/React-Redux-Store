@@ -6,15 +6,15 @@ import {connect} from "react-redux";
 
 function Products ( props ) {
     console.log("Products.rendered");
-  
 
-   
     return (
       <div>
       <h1>Products Page</h1>
     
       </div>
     );
+
+
 }
 
 const mapStateToProps = function ( state, props ) {
