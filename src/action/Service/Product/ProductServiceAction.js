@@ -15,14 +15,14 @@ export default class ProductServiceAction extends ActionBase {
     callback200(response, args) {
         super.callback200(response, args);
 
-        if ( args.actionType === GET ) {
+        if ( args.method === GET ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${GET}${SUCCESS}`,
                     payload: response
                 }
             ]);
-        } else if ( args.actionType === POST ) {
+        } else if ( args.method === POST ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${POST}${SUCCESS}`,
@@ -30,7 +30,7 @@ export default class ProductServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === PATCH ) {
+        else if ( args.method === PATCH ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${PATCH}${SUCCESS}`,
@@ -38,7 +38,7 @@ export default class ProductServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === DELETE ) {
+        else if ( args.method === DELETE ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${DELETE}${SUCCESS}`,
@@ -46,7 +46,7 @@ export default class ProductServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === MANAGEMENT ) {
+        else if ( args.method === MANAGEMENT ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${MANAGEMENT}${SUCCESS}`,
@@ -54,7 +54,7 @@ export default class ProductServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === DETAILS ) {
+        else if ( args.method === DETAILS ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${DETAILS}${SUCCESS}`,
@@ -67,14 +67,14 @@ export default class ProductServiceAction extends ActionBase {
     callback400(response, args) {
         super.callback400(response, args);
 
-        if ( args.actionType === GET ) {
+        if ( args.method === GET ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${GET}${FAIL}`,
                     payload: response
                 }
             ]);
-        } else if ( args.actionType === POST ) {
+        } else if ( args.method === POST ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${POST}${FAIL}`,
@@ -82,7 +82,7 @@ export default class ProductServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === PATCH ) {
+        else if ( args.method === PATCH ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${PATCH}${FAIL}`,
@@ -90,7 +90,7 @@ export default class ProductServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === DELETE ) {
+        else if ( args.method === DELETE ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${DELETE}${FAIL}`,
@@ -98,7 +98,7 @@ export default class ProductServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === MANAGEMENT ) {
+        else if ( args.method === MANAGEMENT ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${DELETE}${FAIL}`,
@@ -106,7 +106,7 @@ export default class ProductServiceAction extends ActionBase {
                 }
             ]);
         }
-        else if ( args.actionType === DETAILS ) {
+        else if ( args.method === DETAILS ) {
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${DETAILS}${FAIL}`,

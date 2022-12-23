@@ -104,6 +104,7 @@ export default class AccountServiceAction extends ActionBase {
                 }
             ]);
         } else if ( args.method === GET ) {
+            console.log("response is:",response);
             this.dispatch([
                 {
                     type: `${this.pageName}${this.serviceName}${GET}${SUCCESS}`,

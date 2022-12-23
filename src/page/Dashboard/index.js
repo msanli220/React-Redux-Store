@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {connect} from "react-redux";
 
-import DataTable from '../../components/DataTable';
 import PageLayout from '../../components/PageLayout';
 import { Paper } from '@material-ui/core';
 function Dashboard ( props ) {
@@ -16,7 +15,7 @@ function Dashboard ( props ) {
         title={"DashBoard Page"}
         >
        <Paper elevation={2} style={{margin:10}}>
-      <DataTable/>
+      
       </Paper>
       </PageLayout>
       </div>
