@@ -14,6 +14,7 @@
     "@mui/icons-material": "^5.10.15",
     "@mui/material": "^5.10.15",
     "@mui/styled-engine-sc": "^5.10.14",
+    "@mui/x-data-grid": "^5.17.16",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@reduxjs/toolkit": "^1.9.0",
     "@svgr/webpack": "^5.5.0",
@@ -84,7 +85,8 @@
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.6.0",
     "webpack-manifest-plugin": "^4.0.2",
-    "workbox-webpack-plugin": "^6.4.1"
+    "workbox-webpack-plugin": "^6.4.1",
+    "history": "5.0.0"
   },
   "scripts": {
     "start": "node scripts/start.js",

@@ -30,7 +30,6 @@ if ( process.env.DEBUG === 'false' ) {
 // root
 const store = createStore(ReduxStore, ReduxMiddleware);
 root.render(
-  <React.StrictMode>
     <Provider store={store}>
         <Router>
             <NavigationProvider>
@@ -38,7 +37,6 @@ root.render(
             </NavigationProvider>
         </Router>
     </Provider>
-  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

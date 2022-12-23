@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import {connect} from "react-redux";
 
-
-
-
+import DataTable from '../../components/DataTable';
+import PageLayout from '../../components/PageLayout';
+import { Paper } from '@material-ui/core';
 function Dashboard ( props ) {
     console.log("Dashboard.rendered");
   
@@ -11,7 +11,14 @@ function Dashboard ( props ) {
    
     return (
       <div>
-      <h1>DashBoard Page</h1>
+  
+      <PageLayout
+        title={"DashBoard Page"}
+        >
+       <Paper elevation={2} style={{margin:10}}>
+      <DataTable/>
+      </Paper>
+      </PageLayout>
       </div>
     );
 }

@@ -18,7 +18,7 @@ const AppRoutes = () => (
     
     <Switch>
          { routes.map(item => <Route key={shortid.generate()} exact path={item.path} component={item.component } />) }
-         <Redirect to={'/'} />
+         {/* <Redirect to={'/'} /> */}
     </Switch>
         
 );
