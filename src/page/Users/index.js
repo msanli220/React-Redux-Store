@@ -4,10 +4,17 @@ import DataTable from '../../components/DataTable';
 import PageLayout from '../../components/PageLayout';
 import { Paper } from '@material-ui/core';
 import UserAction from '../../action/Page/User/UserAction';
+import ButtonMui from '../../components/ButtonMui';
 
 function Users ( props ) {
     console.log("Users.rendered");
     const [ filter, setFilter ] = useState({ });
+    const [userDetails, setUserDetails] = useState({});
+    const [selectedIds, setSelectedIds] = useState();
+
+    useEffect(()=>{
+
+    })
 
     const columns = [
       { field: 'id', headerName: 'ID', width: 70 },
@@ -22,6 +29,22 @@ function Users ( props ) {
       
     ];
 
+    function doAddUserOnClick(){
+      props.doAddUser({
+        serviceData: {
+            queryOptions: userDetails
+        }
+    });
+    }
+
+    function doDeleteUserOnClick(selectedIds){
+      console.log("selectedIds::",selectedIds)
+      props.doDeleteUser({
+        serviceData: {
+            queryOptions: selectedIds
+        }
+    });
+    }
     
   useEffect(()=>{
 
@@ -42,9 +65,26 @@ function Users ( props ) {
         title={"Users Page"}
         >
        <Paper elevation={2} style={{margin:10}}>
+        <ButtonMui
+        label={'Add'}
+        onClick={(e) => {
+          doAddUserOnClick(userDetails);
+        }}
+        style={{textTransform:"none",backgroundColor:"#800f2f"}}
+        
+        />
+        <ButtonMui
+        label={'Remove'}
+        onClick={(e) => {
+          doDeleteUserOnClick(selectedIds);
+        }}
+        style={{textTransform:"none",backgroundColor:"#800f2f"}}
+        
+        />
       <DataTable
       columns={columns}
       rows={props.userList}
+      onCellClick = {(e)=>{setSelectedIds({key:e.id})}}
       />
       </Paper>
       </PageLayout>
@@ -68,7 +108,12 @@ const mapDispatchToProps = function ( dispatch ) {
    const userAction = new UserAction(dispatch);
     return {
        doGetUsers: (params) =>{userAction.get(params);} ,
-       doClean: () => { userAction.getClean();}
+       doAddUser: (params) => {userAction.post(params);},
+       doDeleteUser: (params) => {userAction.delete(params);},
+       doClean: () => { userAction.getClean();
+                        userAction.postClean();
+                        userAction.deleteClean();
+                      }
     }
 }
 

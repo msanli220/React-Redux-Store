@@ -67,6 +67,7 @@ export default class ActionBase extends ReadonlyActionBase {
      * @param params.args { Object }
      */
     async delete( params) {
+        console.log("deleteParams:::",params)
         this.dispatch([ { type: `${this.pageName}${this.serviceName}${DELETE}${FETCHING}` } ]);
         this._run( this.service.delete.bind(this.service), Object.assign({}, params, {args:{...params.args, method: DELETE}}) );
     }

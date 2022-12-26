@@ -10,6 +10,9 @@ export default function DataTable(props) {
         pageSize={5}
         rowsPerPageOptions={[5]}
         checkboxSelection
+        onCellClick={(e)=>{
+          props.onCellClick(e);
+        }}
       />
     </div>
   );
