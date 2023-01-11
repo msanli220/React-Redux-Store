@@ -52,6 +52,7 @@ export default class ServiceBase extends ReadonlyServiceBase {
      * @returns {AxiosPromise<any>}
      */
     async delete( params) {
+        console.log("ServiceBase.deleteParams",params)
         return ApiFetch( {
             method: ApiProtocolEnum.DELETE,
             sourcePath: `${this._sourcePath}/${params.key}`,

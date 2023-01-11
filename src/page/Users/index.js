@@ -41,7 +41,7 @@ function Users ( props ) {
       console.log("selectedIds::",selectedIds)
       props.doDeleteUser({
         serviceData: {
-            queryOptions: selectedIds
+             selectedIds
         }
     });
     }
@@ -109,7 +109,7 @@ const mapDispatchToProps = function ( dispatch ) {
     return {
        doGetUsers: (params) =>{userAction.get(params);} ,
        doAddUser: (params) => {userAction.post(params);},
-       doDeleteUser: (params) => {userAction.delete(params);},
+       doDeleteUser: (params) => {userAction.deleteUser(params);},
        doClean: () => { userAction.getClean();
                         userAction.postClean();
                         userAction.deleteClean();
