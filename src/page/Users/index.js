@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import {connect} from "react-redux";
 import DataTable from '../../components/DataTable';
 import PageLayout from '../../components/PageLayout';
-import { Paper } from '@material-ui/core';
+import { Paper, Grid } from '@material-ui/core';
 import UserAction from '../../action/Page/User/UserAction';
 import ButtonMui from '../../components/ButtonMui';
+import Lodash from 'lodash'
+import TextInput from '../../components/TextInput';
+import DialogForm from '../../components/DialogForm';
 
 function Users ( props ) {
     console.log("Users.rendered");
@@ -12,30 +15,28 @@ function Users ( props ) {
     const [userDetails, setUserDetails] = useState({});
     const [selectedIds, setSelectedIds] = useState();
 
-    useEffect(()=>{
 
-    })
+    const [dialog, setDialog] = useState({isOpen:false, message:""});
+    const [formData, setFormData] = useState();
+    
 
     const columns = [
       { field: 'id', headerName: 'ID', width: 70 },
       { field: 'firstName', headerName: 'First name', width: 130 },
       { field: 'lastName', headerName: 'Last name', width: 130 },
-      {
-        field: 'age',
-        headerName: 'Age',
-        type: 'number',
-        width: 90,
-      },
+      { field: 'age',headerName: 'Age',type: 'number',width: 90, },
       
     ];
 
     function doAddUserOnClick(){
-      props.doAddUser({
-        serviceData: {
-            queryOptions: userDetails
-        }
-    });
+
+      setDialog({isOpen:true,message:"Please fill the form below"});
+
+
     }
+
+    
+
 
     function doDeleteUserOnClick(selectedIds){
       console.log("selectedIds::",selectedIds)
@@ -55,11 +56,27 @@ function Users ( props ) {
   });
   },[])
    
-  useEffect(()=>{
-    console.log("userList:", props.userList)
+
+  function firstNameOnChange(e){
+   setFormData({firstName: e.target.value}) 
+  }
+
+  function lastNameOnChange(){
+
+  }
+
+  function ageOnChange(){}
 
 
-  },[props.userList])
+
+  function dialogOnSubmit(e) {
+    props.doAddUser({
+      serviceData: {
+          queryOptions: userDetails
+      }
+  });
+
+    } 
     return (
       <PageLayout
         title={"Users Page"}
@@ -68,7 +85,7 @@ function Users ( props ) {
         <ButtonMui
         label={'Add'}
         onClick={(e) => {
-          doAddUserOnClick(userDetails);
+          doAddUserOnClick();
         }}
         style={{textTransform:"none",backgroundColor:"#800f2f"}}
         
@@ -87,6 +104,41 @@ function Users ( props ) {
       onCellClick = {(e)=>{setSelectedIds({key:e.id})}}
       />
       </Paper>
+
+      <DialogForm
+                open={dialog.isOpen}
+                title={`ADD`}
+                actionButton={() => <React.Fragment>
+                    <ButtonMui  style={{backgroundColor:'#6c757d'}}   onClick={()=>{setDialog({  isOpen: false, message:""})}} label={'CLOSE'} />
+                    <ButtonMui onClick={dialogOnSubmit} label={'ADD'} />
+                </React.Fragment>}
+            >
+                <Grid container spacing={2}>
+                    
+            
+                        <TextInput
+                            name={"firstName"}
+                            label={"firstName"}
+                            value={formData?.firstName}
+                            onChange={firstNameOnChange}
+                        />
+                         
+            {/*             <TextInput
+                            name={"lastName"}
+                            label={"lastName"}
+                            value={formData.firstName}
+                            onChange={lastNameOnChange}
+                        />   
+                          <TextInput
+                            name={"Age"}
+                            label={"age"}
+                            value={formData.firstName}
+                            onChange={ageOnChange}
+                        />    */}
+
+                </Grid>
+            </DialogForm>
+
       </PageLayout>
     );
 }
