@@ -17,6 +17,7 @@ function Authentication ( props ) {
 
     function usernameOnChange(e) {
         setFormData(prevState => ({...prevState, username: e.target.value}));
+        
     }
     function passwordOnChange(e) {
         setFormData(prevState => ({...prevState, password: e.target.value}));

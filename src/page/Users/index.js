@@ -17,7 +17,7 @@ function Users ( props ) {
 
 
     const [dialog, setDialog] = useState({isOpen:false, message:""});
-    const [formData, setFormData] = useState();
+    const [formData, setFormData] = useState({firstName:"",lastName:"",age:""});
     
 
     const columns = [
@@ -58,14 +58,16 @@ function Users ( props ) {
    
 
   function firstNameOnChange(e){
-   setFormData({firstName: e.target.value}) 
+    setFormData(prevState => ({...prevState, firstName: e.target.value}));
   }
 
-  function lastNameOnChange(){
-
+  function lastNameOnChange(e){
+    setFormData(prevState => ({...prevState, lastName: e.target.value}));
   }
 
-  function ageOnChange(){}
+  function ageOnChange(e){
+    setFormData(prevState => ({...prevState, age: e.target.value}));
+  }
 
 
 
@@ -120,21 +122,21 @@ function Users ( props ) {
                             name={"firstName"}
                             label={"firstName"}
                             value={formData?.firstName}
-                            onChange={firstNameOnChange}
+                            onChange={(e)=>{firstNameOnChange(e)}}
                         />
                          
-            {/*             <TextInput
+                        <TextInput
                             name={"lastName"}
                             label={"lastName"}
-                            value={formData.firstName}
-                            onChange={lastNameOnChange}
+                            value={formData.lastName}
+                            onChange={(e)=>{lastNameOnChange(e)}}
                         />   
                           <TextInput
                             name={"Age"}
                             label={"age"}
-                            value={formData.firstName}
-                            onChange={ageOnChange}
-                        />    */}
+                            value={formData.age}
+                            onChange={(e)=>{ageOnChange(e)}}
+                        />    
 
                 </Grid>
             </DialogForm>
@@ -160,7 +162,7 @@ const mapDispatchToProps = function ( dispatch ) {
    const userAction = new UserAction(dispatch);
     return {
        doGetUsers: (params) =>{userAction.get(params);} ,
-       doAddUser: (params) => {userAction.post(params);},
+       doAddUser: (params) => {userAction.addUser(params);},
        doDeleteUser: (params) => {userAction.deleteUser(params);},
        doClean: () => { userAction.getClean();
                         userAction.postClean();

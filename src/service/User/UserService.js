@@ -25,4 +25,18 @@ export default class UserService extends ServiceBase {
         });
     }
 
+
+     /**
+     * http POST request
+     * @param params { Object }
+     * @param params.key { string }
+     * @returns {AxiosPromise<any>}
+     */
+     async addUser( params) {
+        console.log("UserService.addUserParams",params)
+        return ApiFetch( {
+            method: ApiProtocolEnum.POST,
+            sourcePath: `${this._sourcePath}/${EndpointRoute.user.addUser}`,
+        });
+    }
 }

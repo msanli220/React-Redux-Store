@@ -16,7 +16,8 @@ const EndpointRoute = {
         prefix:"/products",
     },
     user:{
-        prefix:"/users"
+        prefix:"/users",
+        addUser:"/add"
     }
 }
 
