@@ -28,6 +28,11 @@ function Users ( props ) {
       
     ];
 
+
+    useEffect(()=>{
+      props.doClean();
+    })
+
     function doAddUserOnClick(){
 
       setDialog({isOpen:true,message:"Please fill the form below"});
@@ -163,7 +168,7 @@ const mapDispatchToProps = function ( dispatch ) {
     return {
        doGetUsers: (params) =>{userAction.get(params);} ,
        doAddUser: (params) => {userAction.addUser(params);},
-       doDeleteUser: (params) => {userAction.deleteUser(params);},
+       doDeleteUser: (params) => {userAction.deleteUser(params);}, 
        doClean: () => { userAction.getClean();
                         userAction.postClean();
                         userAction.deleteClean();
